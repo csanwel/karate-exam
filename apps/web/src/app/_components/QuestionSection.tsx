@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@csanwel/ui/button";
+import { toast } from "@csanwel/ui/toast";
 
 import type { Question } from "~/type";
 
@@ -31,11 +32,12 @@ export function QuestionSection({ questions }: Props) {
     answered: [],
   });
 
-  const currentQuestion = questions[0];
+  const currentQuestion = questions[state.currentNo];
   const { Q, A } = currentQuestion ?? {};
 
   function answer(ans: boolean) {
     if (ans && A === "True") {
+      toast.success("✅ Correct");
       setState((s) => ({
         correct: s.correct + 1,
         incorrect: s.incorrect,
@@ -43,6 +45,7 @@ export function QuestionSection({ questions }: Props) {
         answered: [...s.answered, { no: s.currentNo, answer: ans }],
       }));
     } else if (!ans && A === "False") {
+      toast.success("✅ Correct");
       setState((s) => ({
         correct: s.correct + 1,
         incorrect: s.incorrect,
@@ -50,6 +53,7 @@ export function QuestionSection({ questions }: Props) {
         answered: [...s.answered, { no: s.currentNo, answer: ans }],
       }));
     } else {
+      toast.error("❌ Incorrect");
       setState((s) => ({
         correct: s.correct,
         incorrect: s.incorrect + 1,
