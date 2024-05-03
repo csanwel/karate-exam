@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
+
 import { cn } from "@csanwel/ui";
 import { ThemeProvider, ThemeToggle } from "@csanwel/ui/theme";
 import { Toaster } from "@csanwel/ui/toast";
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
 
 import { env } from "~/env";
 // import { TRPCReactProvider } from "~/trpc/react";
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
       ? "https://turbo.t3.gg"
       : "http://localhost:3000",
   ),
-  title: "Create T3 Turbo",
-  description: "Simple monorepo with shared backend for web & mobile apps",
+  title: "Karate rules questions",
+  description: "A site for karate rules questions",
   openGraph: {
-    title: "Create T3 Turbo",
-    description: "Simple monorepo with shared backend for web & mobile apps",
+    title: "Karate rules questions",
+    description: "A site for karate rules questions",
     url: "https://create-t3-turbo.vercel.app",
-    siteName: "Create T3 Turbo",
+    siteName: "Karate rules questions",
   },
   twitter: {
     card: "summary_large_image",
