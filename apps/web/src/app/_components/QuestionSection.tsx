@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import { Button } from "@csanwel/ui/button";
 import { toast } from "@csanwel/ui/toast";
 
@@ -17,10 +18,11 @@ interface State {
   answered: {
     no: number;
     answer: boolean;
+    isCorrect: boolean;
   }[];
 }
 
-function getRandom(max: number) {
+function getRandomInteger(max: number) {
   return Math.floor(Math.random() * max);
 }
 
@@ -28,7 +30,7 @@ export function QuestionSection({ questions }: Props) {
   const [state, setState] = useState<State>({
     correct: 0,
     incorrect: 0,
-    currentNo: getRandom(questions.length),
+    currentNo: getRandomInteger(questions.length),
     answered: [],
   });
 
@@ -37,28 +39,37 @@ export function QuestionSection({ questions }: Props) {
 
   function answer(ans: boolean) {
     if (ans && A === "True") {
-      toast.success("✅ Correct");
+      toast.success("Correct");
       setState((s) => ({
         correct: s.correct + 1,
         incorrect: s.incorrect,
-        currentNo: getRandom(questions.length),
-        answered: [...s.answered, { no: s.currentNo, answer: ans }],
+        currentNo: getRandomInteger(questions.length),
+        answered: [
+          ...s.answered,
+          { no: s.currentNo, answer: ans, isCorrect: true },
+        ],
       }));
     } else if (!ans && A === "False") {
-      toast.success("✅ Correct");
+      toast.success("Correct");
       setState((s) => ({
         correct: s.correct + 1,
         incorrect: s.incorrect,
-        currentNo: getRandom(questions.length),
-        answered: [...s.answered, { no: s.currentNo, answer: ans }],
+        currentNo: getRandomInteger(questions.length),
+        answered: [
+          ...s.answered,
+          { no: s.currentNo, answer: ans, isCorrect: true },
+        ],
       }));
     } else {
-      toast.error("❌ Incorrect");
+      toast.error("Incorrect");
       setState((s) => ({
         correct: s.correct,
         incorrect: s.incorrect + 1,
-        currentNo: getRandom(questions.length),
-        answered: [...s.answered, { no: s.currentNo, answer: ans }],
+        currentNo: getRandomInteger(questions.length),
+        answered: [
+          ...s.answered,
+          { no: s.currentNo, answer: ans, isCorrect: false },
+        ],
       }));
     }
   }
