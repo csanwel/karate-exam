@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+// import { TRPCReactProvider } from "~/trpc/react";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
@@ -7,7 +8,6 @@ import { ThemeProvider, ThemeToggle } from "@csanwel/ui/theme";
 import { Toaster } from "@csanwel/ui/toast";
 
 import { env } from "~/env";
-// import { TRPCReactProvider } from "~/trpc/react";
 
 import "~/app/globals.css";
 

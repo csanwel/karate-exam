@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 
+import { cn } from "@csanwel/ui";
+import { Alert, AlertDescription } from "@csanwel/ui/alert";
 import { Button } from "@csanwel/ui/button";
 import { toast } from "@csanwel/ui/toast";
 
 import type { Question } from "~/type";
+import { DEFAULT_TRACK_PROPERTIES, track } from "~/services/amplitude";
 
 interface Props {
   questions: Question[];
@@ -49,6 +52,13 @@ export function QuestionSection({ questions }: Props) {
           { no: s.currentNo, answer: ans, isCorrect: true },
         ],
       }));
+
+      track("answer", {
+        ...DEFAULT_TRACK_PROPERTIES,
+        no: String(state.currentNo),
+        answer: ans,
+        isCorrect: true,
+      });
     } else if (!ans && A === "False") {
       toast.success("Correct");
       setState((s) => ({
@@ -60,6 +70,13 @@ export function QuestionSection({ questions }: Props) {
           { no: s.currentNo, answer: ans, isCorrect: true },
         ],
       }));
+
+      track("answer", {
+        ...DEFAULT_TRACK_PROPERTIES,
+        no: String(state.currentNo),
+        answer: ans,
+        isCorrect: true,
+      });
     } else {
       toast.error("Incorrect");
       setState((s) => ({
@@ -71,12 +88,22 @@ export function QuestionSection({ questions }: Props) {
           { no: s.currentNo, answer: ans, isCorrect: false },
         ],
       }));
+
+      track("answer", {
+        ...DEFAULT_TRACK_PROPERTIES,
+        no: String(state.currentNo),
+        answer: ans,
+        isCorrect: false,
+      });
     }
   }
 
   return (
     <div className="flex flex-col space-y-2">
-      <span>{Q}</span>
+      <Alert className="h-48">
+        <AlertDescription>{Q}</AlertDescription>
+      </Alert>
+
       <div className="space-x-2">
         <Button onClick={() => answer(true)}>True</Button>
         <Button onClick={() => answer(false)}>False</Button>
@@ -84,6 +111,23 @@ export function QuestionSection({ questions }: Props) {
 
       <div>Correct: {state.correct}</div>
       <div>Incorrect: {state.incorrect}</div>
+
+      <div className="flex flex-wrap space-x-2">
+        <span>Answered Questions:</span>
+        {state.answered.map((answer, i) => {
+          return (
+            <span
+              key={i}
+              className={cn(
+                "text-red-700",
+                answer.isCorrect && "text-green-700",
+              )}
+            >
+              {answer.no}
+            </span>
+          );
+        })}
+      </div>
     </div>
   );
 }

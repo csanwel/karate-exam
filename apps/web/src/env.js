@@ -30,6 +30,7 @@ export const env = createEnv({
    */
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
+    NEXT_PUBLIC_AMPLITUDE_API_KEY: z.string(),
   },
   /**
    * Destructure all variables from `process.env` to make sure they aren't tree-shaken away.
@@ -40,6 +41,7 @@ export const env = createEnv({
     // DB_PASSWORD: process.env.DB_PASSWORD,
     // DB_USERNAME: process.env.DB_USERNAME,
     AIRTABLE_API_KEY: process.env.AIRTABLE_API_KEY,
+    NEXT_PUBLIC_AMPLITUDE_API_KEY: process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY,
     PORT: process.env.PORT,
     VERCEL_URL: process.env.VERCEL_URL,
 

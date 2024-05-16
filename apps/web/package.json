@@ -14,6 +14,7 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
+    "@amplitude/analytics-browser": "^2.7.3",
     "@csanwel/api": "workspace:^0.1.0",
     "@csanwel/ui": "workspace:^0.1.0",
     "@csanwel/validators": "workspace:^0.1.0",
