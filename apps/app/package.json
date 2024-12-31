@@ -37,14 +37,14 @@
     "superjson": "2.2.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.7",
+    "@babel/runtime": "^7.23.7",
     "@csanwel/api": "workspace:^0.1.0",
     "@csanwel/eslint-config": "workspace:^0.2.0",
     "@csanwel/prettier-config": "workspace:^0.1.0",
     "@csanwel/tailwind-config": "workspace:^0.1.0",
     "@csanwel/tsconfig": "workspace:^0.1.0",
-    "@babel/core": "^7.23.7",
-    "@babel/preset-env": "^7.23.7",
-    "@babel/runtime": "^7.23.7",
     "@expo/config-plugins": "^7.2.5",
     "@types/babel__core": "^7.20.4",
     "@types/react": "^18.2.46",
