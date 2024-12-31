@@ -11,6 +11,8 @@ import { env } from "~/env";
 
 import "~/app/globals.css";
 
+import { PWA } from "./_components/PWA";
+
 export const metadata: Metadata = {
   metadataBase: new URL(
     env.VERCEL_ENV === "production"
@@ -53,6 +55,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           {/* <TRPCReactProvider>{props.children}</TRPCReactProvider> */}
           {props.children}
 
+          <PWA />
           <div className="absolute bottom-4 right-4">
             <ThemeToggle />
           </div>

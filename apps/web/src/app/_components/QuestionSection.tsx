@@ -49,7 +49,7 @@ export function QuestionSection({ questions }: Props) {
         currentNo: getRandomInteger(questions.length),
         answered: [
           ...s.answered,
-          { no: s.currentNo, answer: ans, isCorrect: true },
+          { no: s.currentNo + 1, answer: ans, isCorrect: true },
         ],
       }));
 
@@ -67,7 +67,7 @@ export function QuestionSection({ questions }: Props) {
         currentNo: getRandomInteger(questions.length),
         answered: [
           ...s.answered,
-          { no: s.currentNo, answer: ans, isCorrect: true },
+          { no: s.currentNo + 1, answer: ans, isCorrect: true },
         ],
       }));
 
@@ -85,7 +85,7 @@ export function QuestionSection({ questions }: Props) {
         currentNo: getRandomInteger(questions.length),
         answered: [
           ...s.answered,
-          { no: s.currentNo, answer: ans, isCorrect: false },
+          { no: s.currentNo + 1, answer: ans, isCorrect: false },
         ],
       }));
 

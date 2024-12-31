@@ -1,0 +1,16 @@
+{
+  "short_name": "Karate",
+  "name": "Karate Exam Questions",
+  "description": "Karate Exam Questions and Answer site",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/karate.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
