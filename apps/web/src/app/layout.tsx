@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-// import { TRPCReactProvider } from "~/trpc/react";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
@@ -52,7 +51,6 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {/* <TRPCReactProvider>{props.children}</TRPCReactProvider> */}
           {props.children}
 
           <PWA />

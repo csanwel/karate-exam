@@ -41,7 +41,7 @@ export async function getQuestions(
 
   while (offset) {
     const resps = await getQuestionsPage(type, offset);
-    const newQs = resps.records.map((question: any) => ({
+    const newQs = (resps.records ?? []).map((question: any) => ({
       No: question.fields["#"],
       A: question.fields.A,
       Q: question.fields.Q,
